@@ -1,5 +1,5 @@
 function HomePage() {
-  return <div>okok</div>;
+  return <div>Home</div>;
 }
 
 export default HomePage;
