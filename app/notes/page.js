@@ -1,5 +1,6 @@
 import styles from "app/notes/styles.module.css";
 import Link from "next/link";
+import PocketBase from "pocketbase";
 import CreateNote from "app/notes/CreateNote";
 
 async function NotesPage() {
@@ -19,17 +20,9 @@ async function NotesPage() {
 }
 
 async function getNotes() {
-  try {
-    const res = await fetch(
-      "http://127.0.0.1:8090/api/collections/notes/records?page=1&perPage=30",
-      { cache: "no-store" }
-    );
-    const data = await res.json();
-    console.log(data.items);
-    return data?.items;
-  } catch (error) {
-    console.log(error);
-  }
+  const db = new PocketBase("http://127.0.0.1:8090");
+  const data = await db.records.getList("notes");
+  return data.items;
 }
 
 function Note({ note }) {
