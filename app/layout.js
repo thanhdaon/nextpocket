@@ -1,5 +1,4 @@
-import Link from "next/link";
-import "app/global.css";
+import "styles/globals.css";
 
 function RootLayout({ children }) {
   return (
@@ -7,15 +6,7 @@ function RootLayout({ children }) {
       <head>
         <title>NextPocket</title>
       </head>
-      <body>
-        <main>
-          <nav>
-            <Link href="/">Home</Link>
-            <Link href="/notes">Notes</Link>
-          </nav>
-          {children}
-        </main>
-      </body>
+      <body>{children}</body>
     </html>
   );
 }

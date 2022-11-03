@@ -1,4 +1,4 @@
-import styles from "app/notes/styles.module.css";
+import styles from "styles/notes.module.css";
 
 async function NotePage({ params }) {
   const note = await getNote(params.id);

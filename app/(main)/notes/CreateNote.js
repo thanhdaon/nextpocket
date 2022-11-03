@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { useRouter } from "next/navigation";
+import PocketBase from "pocketbase";
 
 function CreateNote() {
   const [title, setTitle] = useState("");
@@ -10,20 +11,13 @@ function CreateNote() {
   const router = useRouter();
 
   async function create() {
-    await fetch("http://127.0.0.1:8090/api/collections/notes/records", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        title,
-        content,
-      }),
+    const db = new PocketBase("http://127.0.0.1:8090");
+    await db.records.create("notes", {
+      title,
+      content,
     });
-
     setContent("");
     setTitle("");
-
     router.refresh();
   }
 

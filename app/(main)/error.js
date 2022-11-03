@@ -1,6 +1,7 @@
 "use client";
 
-function Error() {
+function Error({ error, reset }) {
+  console.log({ error });
   return <p>error</p>;
 }
 
