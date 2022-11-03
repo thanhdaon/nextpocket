@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "pocket": "${PWD}/pocket/pocketbase serve",
+    "backend": "${PWD}/backend/pocketbase serve",
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
