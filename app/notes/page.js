@@ -25,6 +25,7 @@ async function getNotes() {
       { cache: "no-store" }
     );
     const data = await res.json();
+    console.log(data.items);
     return data?.items;
   } catch (error) {
     console.log(error);
